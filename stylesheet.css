@@ -15,7 +15,7 @@
     --font: #2a2420;
     --background: #b0dcd2;
     --buttons: #55aea2;
-    --dashes: #327b71; */   
+    --dashes: #327b71; */
 
     /* --header: #A6B28B;
     --font: #1C352D;
@@ -43,9 +43,10 @@ body {
         color: var(--font);
     }
 
-    span {
+    p {
         font-family: var(--header-font);
         font-size: xx-large;
+        margin: 0;
     }
 }
 
@@ -66,6 +67,10 @@ body {
             display: flex;
             align-items: center;
             gap: 1.5rem;
+        }
+
+        i {
+            display: none;
         }
     }
 }
@@ -125,6 +130,8 @@ body {
 
         iframe {
             margin-top: 2rem;
+            width: 640px;
+            height: 480px;
         }
     }
 
@@ -465,4 +472,56 @@ body {
     left: 60%;
     filter: drop-shadow(0 0 10px #fffdef);
     z-index: 2;
+}
+
+/* ----------- MEIDIA ----------- */
+
+@media (max-width: 1000px) {
+    body {
+        font-size: 20px;
+
+        p {
+            display: none !important;
+        }
+    }
+
+    .sticky-header {
+        nav {
+            padding: 0.25rem 0.5rem;
+
+            >div {
+                gap: 1.15rem;
+            }
+
+            i {
+                display: block;
+                font-size: 1.25rem;
+            }
+
+            span {
+                display: none;
+            }
+        }
+    }
+
+    .websiteContent {
+        h1 {
+            padding: 1rem 3rem;
+        }
+
+        .wedding-logo {
+            flex-direction: column;
+        }
+
+        .map {
+            iframe {
+                margin-top: 2rem;
+                width: 340px;
+                height: 480px;
+            }
+        }
+    }
+
+
+
 }
