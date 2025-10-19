@@ -1,0 +1,468 @@
+:root {
+    --header: #6c79c3;
+    --font: #112383;
+    --background: #ffdbbb;
+    --buttons: #f4b47c;
+    --dashes: #e48a3c;
+
+    /* --header: #994763;
+    --font: #461e2a;
+    --background: #f6ebf0;
+    --buttons: #aa7386;
+    --dashes: #8e3754; */
+
+    /* --header: #f76b4b;
+    --font: #2a2420;
+    --background: #b0dcd2;
+    --buttons: #55aea2;
+    --dashes: #327b71; */   
+
+    /* --header: #A6B28B;
+    --font: #1C352D;
+    --background: #F9F6F3;
+    --buttons: #F5C9B0;
+    --dashes: #DAA06D; */
+
+    --header-font: "Modak", system-ui;
+    --regular-font: "Playpen Sans", cursive;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: var(--regular-font);
+    background-color: var(--background);
+    color: var(--font);
+}
+
+body {
+    margin: 0;
+    width: 100%;
+
+    a {
+        text-decoration: none;
+        color: var(--font);
+    }
+
+    span {
+        font-family: var(--header-font);
+        font-size: xx-large;
+    }
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background: var(--background);
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 2rem;
+
+        >div {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+    }
+}
+
+.websiteContent {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    svg path {
+        fill: crimson;
+    }
+
+    .wedding-logo {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        font-size: xxx-large;
+        font-family: var(--header-font);
+        margin-top: 4rem;
+    }
+
+    h1 {
+        background: var(--header);
+        padding: 1.5rem 6rem;
+        margin-bottom: 3rem;
+        font-weight: 400 !important;
+        font-family: var(--header-font);
+        border-radius: 1rem;
+    }
+
+    .confirmation {
+        width: 90%;
+        margin: 12vh 2vw 0 2vw;
+        padding-top: 75px;
+
+        div {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    .map {
+        width: 90%;
+        margin: 12vh 2vw 0 2vw;
+        padding-top: 75px;
+
+        div {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        iframe {
+            margin-top: 2rem;
+        }
+    }
+
+    .schedule {
+        width: 90%;
+        margin: 12vh 2vw 0 2vw;
+        padding-top: 75px;
+
+        div {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .timeline {
+            width: 300px;
+            margin: auto;
+
+            div {
+                border-top: 2px dashed;
+                border-color: var(--dashes) !important;
+                margin: 0;
+                padding: 30px;
+                width: 300px;
+            }
+
+            .timeline-time {
+                display: flex;
+            }
+
+            div:nth-child(even) {
+                border-left: 2px dashed;
+                border-top-left-radius: 30px;
+                border-bottom-left-radius: 30px;
+                margin-right: 30px;
+                padding-right: 0;
+            }
+
+            div:nth-child(odd) {
+                border-right: 2px dashed;
+                border-top-right-radius: 30px;
+                border-bottom-right-radius: 30px;
+                margin-left: 30px;
+                padding-left: 0;
+            }
+
+            div:first-child {
+                border-top: 0;
+                border-top-right-radius: 0;
+                border-top-left-radius: 0;
+            }
+
+            div:last-child {
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+    }
+
+    .galery {
+        width: 90%;
+        margin: 12vh 2vw 0 2vw;
+        padding-top: 75px;
+        margin-bottom: 5rem;
+
+        >div {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+/* --- SWITCH ---*/
+
+.switch-button {
+    border-radius: 15px;
+    background-color: var(--buttons);
+    box-shadow: 0 0 0 4px var(--buttons), 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+    font-family: var(--regular-font);
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 80px;
+    text-align: center;
+    letter-spacing: 1px;
+    position: relative;
+    padding-right: 40px;
+}
+
+.switch-button:before {
+    content: "EN";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.switch-button-checkbox {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 2;
+}
+
+.switch-button-checkbox:checked+.switch-button-label:before {
+    transform: translateX(40px);
+    transition: transform 300ms linear;
+}
+
+.switch-button-checkbox+.switch-button-label {
+    position: relative;
+    padding: 5px 0;
+    /* slider height */
+    display: block;
+    user-select: none;
+    pointer-events: none;
+}
+
+.switch-button-checkbox+.switch-button-label:before {
+    content: "";
+    border: 2px dashed var(--dashes);
+    height: 90%;
+    width: 90%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 1rem;
+    transform: translateX(0);
+    transition: transform 300ms;
+}
+
+.switch-button-checkbox+.switch-button-label .switch-button-label-span {
+    position: relative;
+}
+
+/* ----------- BUTTONS ----------- */
+
+.fill {
+    border-bottom: 2px dashed var(--dashes);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+    padding: 0.5rem 1em;
+    border-radius: 10px;
+    transition: .1s ease-in-out, .4s color;
+    font-family: var(--regular-font);
+    cursor: pointer;
+
+}
+
+.fill:hover {
+    box-shadow: 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.15);
+}
+
+
+.fill:active {
+    transform: translateX(0.1em) translateY(0.1em);
+    box-shadow: 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.15);
+}
+
+
+.slide {
+    outline: none;
+    padding: 1em;
+    padding-left: 3em;
+    padding-right: 3em;
+    border: 2px dashed var(--dashes);
+    border-radius: 15px;
+    background-color: var(--buttons);
+    box-shadow: 0 0 0 4px var(--buttons), 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+    transition: .1s ease-in-out, .4s color;
+    margin-top: 1rem;
+    font-family: var(--regular-font);
+    position: relative;
+    cursor: pointer;
+}
+
+.slide i {
+    opacity: 0;
+    font-size: 13px;
+    transition: 0.2s;
+    position: absolute;
+    right: 10px;
+    top: 17px;
+    transition: transform 1;
+}
+
+.slide div {
+    transition: transform 0.8s;
+}
+
+.slide:hover div {
+    transform: translateX(-6px);
+}
+
+.slide:hover i {
+    opacity: 1;
+    transform: translateX(-6px);
+}
+
+.slide:active {
+    transform: translateX(0.1em) translateY(0.1em);
+    box-shadow: 0 0 0 4px var(--buttons), 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
+    z-index: -5;
+}
+
+/* ----------- HEARTS ----------- */
+
+.star-1 {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 50px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+}
+
+.star-2 {
+    position: absolute;
+    top: 45%;
+    left: 47%;
+    width: 30px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-3 {
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-4 {
+    position: absolute;
+    top: 60%;
+    left: 30%;
+    width: 20px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all .8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-5 {
+    position: absolute;
+    top: 65%;
+    left: 32%;
+    width: 30px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all .6s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-6 {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all .8s ease;
+}
+
+.wedding-logo {
+    position: relative;
+    transition: all .3s ease-in-out;
+}
+
+.wedding-logo:hover .star-1 {
+    position: absolute;
+    top: 40%;
+    left: -30%;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.wedding-logo:hover .star-2 {
+    position: absolute;
+    top: -25%;
+    left: 10%;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.wedding-logo:hover .star-3 {
+    position: absolute;
+    top: 70%;
+    left: 25%;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.wedding-logo:hover .star-4 {
+    position: absolute;
+    top: 30%;
+    left: 80%;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.wedding-logo:hover .star-5 {
+    position: absolute;
+    top: 25%;
+    left: 115%;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.wedding-logo:hover .star-6 {
+    position: absolute;
+    top: 5%;
+    left: 60%;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
